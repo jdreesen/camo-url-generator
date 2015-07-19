@@ -1,0 +1,26 @@
+{
+  "name": "jdreesen/camo-url-generator",
+  "type": "library",
+  "description": "A library that generates URLs for usage with camo TLS image proxy.",
+  "keywords": ["camo", "go-camo", "tls proxy"],
+  "homepage": "http://github.com/jdreesen/camo-url-generator",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jacob Dreesen",
+      "email": "jacob.dreesen@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.3"
+  },
+  "require-dev": {
+    "phpspec/phpspec": "~2.2"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": { "Dreesen\\Image\\": "src/" }
+  }
+}

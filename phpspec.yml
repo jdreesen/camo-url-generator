@@ -1,0 +1,4 @@
+suites:
+    camo_suite:
+        namespace: Dreesen\Image
+        psr4_prefix: Dreesen\Image
