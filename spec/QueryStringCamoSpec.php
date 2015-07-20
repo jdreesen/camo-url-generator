@@ -2,18 +2,13 @@
 
 namespace spec\Dreesen\Image;
 
-use Dreesen\Image\Base64Camo;
-use Dreesen\Image\StringUtil;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-/**
- * @mixin Base64Camo
- */
-class Base64CamoSpec extends ObjectBehavior
+class QueryStringCamoSpec extends ObjectBehavior
 {
     const BASE_URL = 'https://test.camo';
-    const HMAC_KEY = 'secret';
+    const HMAC_KEY = 'super secret';
 
     function let()
     {
@@ -30,25 +25,25 @@ class Base64CamoSpec extends ObjectBehavior
         $this->camouflage('http://test.dev')->shouldStartWith(self::BASE_URL);
     }
 
-    function it_should_generate_the_signature_using_the_hmac_key_and_encode_it_with_url_safe_base64()
+    function it_should_generate_the_signature_using_the_hmac_key()
     {
         $url = 'http://test.dev';
-        $signature = StringUtil::urlsafeBase64Encode(hash_hmac('sha1', $url, self::HMAC_KEY, true));
+        $signature = hash_hmac('sha1', $url, self::HMAC_KEY, false);
 
         $this->camouflage($url)->shouldMatch('/' . $signature . '/');
     }
 
-    function it_should_encode_the_target_url_in_url_safe_base64_format()
+    function it_should_append_the_target_url_as_url_encoded_query_string()
     {
         $url = 'http://test.dev';
-        $encoded = StringUtil::urlsafeBase64Encode($url);
+        $encoded = rawurlencode($url);
 
         $this->camouflage($url)->shouldEndWith($encoded);
     }
 
     function it_should_return_a_url_in_correct_format()
     {
-        $expected = sprintf('~^%s/[0-9a-z]{27}/[0-9a-z]+$~i', preg_quote(self::BASE_URL, '~'));
+        $expected = sprintf('~^%s/[0-9a-f]{40}\?url=.+$~', preg_quote(self::BASE_URL, '~'));
 
         $this->camouflage('http://test.dev')->shouldMatch($expected);
     }

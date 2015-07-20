@@ -24,7 +24,7 @@ class HexCamoSpec extends ObjectBehavior
         $this->shouldImplement('Dreesen\Image\Camo');
     }
 
-    function it_should_prepend_the_camo_servers_base_url()
+    function it_should_prepend_the_camo_server_base_url()
     {
         $this->camouflage('http://test.dev')->shouldStartWith(self::BASE_URL);
     }
@@ -43,5 +43,12 @@ class HexCamoSpec extends ObjectBehavior
         $encoded = bin2hex($url);
 
         $this->camouflage($url)->shouldEndWith($encoded);
+    }
+
+    function it_should_return_a_url_in_correct_format()
+    {
+        $expected = sprintf('~^%s/[0-9a-f]{40}/[0-9a-f]+$~', preg_quote(self::BASE_URL, '~'));
+
+        $this->camouflage('http://test.dev')->shouldMatch($expected);
     }
 }

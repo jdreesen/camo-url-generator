@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/jdreesen/camo-url-generator.svg?branch=master)](https://travis-ci
 .org/jdreesen/camo-url-generator)
 
-A PHP library that generates camouflaged URLs for usage with [go-camo] TLS image proxy.
+A PHP library that generates camouflaged URLs for usage with [camo] or [go-camo] TLS image proxy.
 
 ## Installation
 
@@ -29,4 +29,5 @@ The `secret` is the same HMAC key you used on your camo server instance running 
 All contents of this package are licensed under the [MIT license].
 
 [MIT license]: LICENSE
+[camo]: https://github.com/atmos/camo
 [go-camo]: https://github.com/cactus/go-camo

@@ -3,12 +3,11 @@
 namespace Dreesen\Image;
 
 /**
- * Generates URLs for the use with the camo or go-camo image proxy in HEX format.
+ * Generates URLs for the use with the camo image proxy in query string format.
  *
  * @see https://github.com/atmos/camo
- * @see https://github.com/cactus/go-camo
  */
-final class HexCamo implements Camo
+final class QueryStringCamo implements Camo
 {
     /** @var string */
     private $camoBaseUrl;
@@ -29,7 +28,7 @@ final class HexCamo implements Camo
     }
 
     /**
-     * Generates a signed camo URL in HEX format.
+     * Generates a signed camo URL.
      *
      * @param string $url The URL to camouflage
      *
@@ -38,7 +37,7 @@ final class HexCamo implements Camo
     public function camouflage($url)
     {
         $signature = $this->generateSignature($url);
-        $encodedUrl = bin2hex($url);
+        $encodedUrl = rawurlencode($url);
 
         return $this->generateCamoUrl($signature, $encodedUrl);
     }
@@ -53,7 +52,7 @@ final class HexCamo implements Camo
      */
     private function generateCamoUrl($signature, $encodedUrl)
     {
-        return $this->camoBaseUrl . '/' . $signature . '/' . $encodedUrl;
+        return $this->camoBaseUrl . '/' . $signature . '?url=' . $encodedUrl;
     }
 
     /**
