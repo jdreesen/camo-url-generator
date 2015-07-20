@@ -3,7 +3,7 @@
 namespace Dreesen\Image;
 
 /**
- * Generates URLs for the use with the camo image proxy in query string format.
+ * Generates URLs for usage with the camo image proxy in query string format.
  *
  * @see https://github.com/atmos/camo
  */

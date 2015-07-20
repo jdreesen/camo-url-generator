@@ -3,7 +3,7 @@
 namespace Dreesen\Image;
 
 /**
- * Decorator that only camouflages HTTP (non-secure) URLs.
+ * Decorator to only camouflage HTTP (non-secure) URLs.
  */
 final class HttpOnlyCamo implements Camo
 {
@@ -11,7 +11,7 @@ final class HttpOnlyCamo implements Camo
     private $delegate;
 
     /**
-     * @param Camo $delegate The delegate camouflage instance
+     * @param Camo $delegate The delegate Camo instance
      */
     public function __construct(Camo $delegate)
     {
@@ -19,7 +19,7 @@ final class HttpOnlyCamo implements Camo
     }
 
     /**
-     * Generates a signed camo URL if scheme is HTTP or no scheme given (implicitly HTTP).
+     * Generates a signed camo URL if scheme is HTTP or no scheme given (implicit HTTP).
      *
      * @param string $url The URL to camouflage
      *

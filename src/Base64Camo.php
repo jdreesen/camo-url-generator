@@ -3,7 +3,7 @@
 namespace Dreesen\Image;
 
 /**
- * Generates URLs for the use with the go-camo image proxy in Base64 format.
+ * Generates URLs for usage with the go-camo image proxy in Base64 format.
  *
  * @see https://github.com/cactus/go-camo
  */

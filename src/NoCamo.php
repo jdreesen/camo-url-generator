@@ -3,7 +3,7 @@
 namespace Dreesen\Image;
 
 /**
- * Use this class to disable image camouflage.
+ * Disables image camouflage by returning given URLs as they are.
  */
 final class NoCamo implements Camo
 {
