@@ -24,6 +24,11 @@ echo $camo->camouflage('http://example.org/image.jpg');
 
 The `secret` is the same HMAC key you used on your camo server instance running on `https://img.example.org`.
 
+## Credit
+
+Thanks to [Corey Donohoe](https://github.com/atmos) for creating Camo 
+and to [cactus](https://github.com/cactus) for the GoLang port of Camo.
+
 ## License
 
 All contents of this package are licensed under the [MIT license].
