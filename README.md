@@ -1,7 +1,6 @@
 # Camo URL Generator
 
-[![Build Status](https://travis-ci.org/jdreesen/camo-url-generator.svg?branch=master)](https://travis-ci
-.org/jdreesen/camo-url-generator)
+[![Build Status](https://travis-ci.org/jdreesen/camo-url-generator.svg?branch=master)](https://travis-ci.org/jdreesen/camo-url-generator)
 
 A PHP library that generates camouflaged URLs for usage with [camo] or [go-camo] TLS image proxy.
 
