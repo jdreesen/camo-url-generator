@@ -24,6 +24,15 @@ echo $camo->camouflage('http://example.org/image.jpg');
 
 The `secret` is the same HMAC key you used on your camo server instance running on `https://img.example.org`.
 
+## What's inside?
+
+* `Dreesen\Image\Camo`: Interface for your type-hinting which is implemented by all the following classes.
+* `Dreesen\Image\HexCamo`: Generates URLs for usage with the [camo] or [go-camo] image proxy in HEX format.
+* `Dreesen\Image\Base64Camo`: Generates URLs for usage with the [go-camo] image proxy in Base64 format.
+* `Dreesen\Image\QueryStringCamo`: Generates URLs for usage with the [camo] image proxy in query string format.
+* `Dreesen\Image\HttpOnlyCamo`: Decorator to only camouflage HTTP (non-secure) URLs.
+* `Dreesen\Image\NoCamo`: Disables image camouflage by returning given URLs as they are.
+
 ## Credit
 
 Thanks to [Corey Donohoe](https://github.com/atmos) for creating Camo 
