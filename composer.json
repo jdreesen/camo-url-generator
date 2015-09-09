@@ -21,6 +21,13 @@
     "bin-dir": "bin"
   },
   "autoload": {
-    "psr-4": { "Dreesen\\Image\\": "src/" }
+    "psr-4": {
+      "Dreesen\\Image\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0-dev"
+    }
   }
 }
