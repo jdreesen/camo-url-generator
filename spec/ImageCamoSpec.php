@@ -26,6 +26,13 @@ class ImageCamoSpec extends ObjectBehavior
         $this->shouldImplement(Camo::class);
     }
 
+    function it_should_not_allow_insecure_scheme_as_server_url($uriFormatter, $digestGenerator)
+    {
+        $this->beConstructedWith('http://example.com', $uriFormatter, $digestGenerator);
+
+        $this->shouldThrow(\DomainException::class)->duringInstantiation();
+    }
+
     function it_should_append_a_slash_to_the_server_url() {
         $this->camouflage('')->shouldReturn(self::SERVER_URL . '/');
     }
