@@ -19,7 +19,7 @@ final class HttpOnlyCamo implements Camo
     }
 
     /**
-     * Generates a signed camo URL if scheme is HTTP or no scheme given (implicit HTTP).
+     * Generates a signed camo URL if scheme is HTTP.
      *
      * @param string $url The URL to camouflage
      *
@@ -27,7 +27,7 @@ final class HttpOnlyCamo implements Camo
      */
     public function camouflage($url)
     {
-        if (0 === stripos($url, 'http://') || 0 !== stripos($url, 'http')) {
+        if (0 === stripos($url, 'http://')) {
             return $this->delegate->camouflage($url);
         }
 

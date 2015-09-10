@@ -12,7 +12,7 @@ use Prophecy\Argument;
  */
 class HttpOnlyCamoSpec extends ObjectBehavior
 {
-    const CAMOUFLAGED_URL = 'https://test.camo';
+    const CAMOUFLAGED_URL = 'https://example.com/?parameters';
 
     function let(Camo $delegate)
     {
@@ -23,22 +23,17 @@ class HttpOnlyCamoSpec extends ObjectBehavior
 
     function it_should_implement_camo()
     {
-        $this->shouldImplement('Dreesen\Image\Camo');
+        $this->shouldImplement(Camo::class);
     }
 
     function it_should_camouflage_urls_with_http_scheme()
     {
-        $this->camouflage('http://test.dev')->shouldReturn(self::CAMOUFLAGED_URL);
-    }
-
-    function it_should_camouflage_urls_without_scheme()
-    {
-        $this->camouflage('test.dev')->shouldReturn(self::CAMOUFLAGED_URL);
+        $this->camouflage('http://example.com/image.jpg')->shouldReturn(self::CAMOUFLAGED_URL);
     }
 
     function it_should_not_camouflage_urls_with_https_scheme()
     {
-        $url = 'https://test.dev';
+        $url = 'https://example.com/image.jpg';
 
         $this->camouflage($url)->shouldReturn($url);
     }
